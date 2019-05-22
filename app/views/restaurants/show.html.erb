@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 mx-auto">
+      <h1 class="mb-3"><%= @restaurant.name %></h1>
+
+      <div class="card mb-3">
+        <div class="card-header text-white bg-secondary font-weight-lighter py-2">
+          <%= @restaurant.category.capitalize %>
+        </div>
+        <div class="card-body font-weight-lighter">
+          <p class="card-text"><%= "#{@restaurant.address} | #{@restaurant.phone_number}" %></p>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-body font-weight-lighter">
+          <% @restaurant.reviews.each do |review| %>
+            <h6 class="text-info"><% review.rating.times do  %>
+              <i class="fas fa-star"></i>
+              <% end %>
+            </h6>
+            <p class="card-text"><%= review.content %></p>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card mb-3 p-3">
+        <p class="mb-0 text-primary">Share Your Experience</p>
+        <hr>
+        <%= render '/reviews/form' %>
+      </div>
+    </div>
+  </div>
+</div>

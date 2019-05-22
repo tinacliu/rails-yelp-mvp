@@ -1,0 +1,7 @@
+<%= simple_form_for @restaurant do |f| -%>
+  <%= f.input :category, collection: Restaurant::CATEGORY %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.submit "add restaurant", class: "btn btn-outline-primary" %>
+<% end %>
